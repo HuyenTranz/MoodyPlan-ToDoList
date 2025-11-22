@@ -1,0 +1,12 @@
+.authComponent-wapper {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    background-image: url("../../assets/background.png"); 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    animation: slide-up 0.2s ease-out forwards;
+    padding-right: 150px;
+}

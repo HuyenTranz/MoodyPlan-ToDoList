@@ -1,0 +1,158 @@
+.auth-form {
+    padding: 10px 30px 30px;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    width: 100%;
+    max-width: 500px;
+
+    .form-title {
+        text-align: center;
+        margin-bottom: 30px;
+        font-size: 28px;
+        color: $text-color;
+    }
+
+    form {
+        .form-group {
+            margin-bottom: 20px;
+
+            .label {
+                display: block;
+                margin-bottom: 6px;
+                font-size: 14px;
+                color: $text-color;
+            }
+
+            .input {
+                width: 100%;
+                padding: 12px;
+                border: 1px solid $border-color;
+                border-radius: 8px;
+                font-size: 14px;
+                transition: border-color 0.2s;
+
+                &:focus {
+                    border-color: $border-color-focus;
+                    outline: none;
+                }
+            }
+
+            .password-input-wrapper {
+                position: relative;
+
+                .toggle-password {
+                    position: absolute;
+                    top: 50%;
+                    right: 12px;
+                    transform: translateY(-50%);
+                    cursor: pointer;
+                    color: #888;
+
+                    &:hover {
+                        color: #333;
+                    }
+                }
+            }
+        }
+
+        .forgot-password {
+            text-align: right;
+            margin-bottom: 20px;
+
+            a {
+                font-size: 13px;
+                color: $text-accent;
+
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
+
+        .auth-button {
+            width: 100%;
+            padding: 12px;
+            background-color: $btn-bg;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+
+            &:hover {
+                background-color: $btn-bg-hover;
+            }
+        }
+    }
+
+    .sign-in-other {
+        margin: 25px 0;
+        text-align: center;
+
+        .divider-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 20px 0;
+
+            .line {
+                flex: 1;
+                height: 1px;
+                background-color: $border-color;
+                margin: 0 10px;
+                border-radius: 1px;
+            }
+
+            .text {
+                font-size: 14px;
+                color: $text-color;
+                text-transform: uppercase;
+            }
+        }
+
+
+        .social-buttons {
+            .social-button {
+                width: 100%;
+                padding: 12px;
+                border-radius: 8px;
+                font-size: 16px;
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 10px;
+                transition: all 0.2s;
+                background-color: $bg-color;
+                border: 1px solid $border-color;
+                color: $text-color;
+
+                &:hover {
+                    background-color: $hover-bg;
+                    border-color: darken($border-color, 15%);
+                }
+
+                svg {
+                    font-size: 20px;
+                }
+            }
+        }
+    }
+
+    .no-account {
+        text-align: center;
+        font-size: 14px;
+        color: #555;
+
+        a {
+            color: $text-accent;
+            text-decoration: none;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+
+    }
+}
