@@ -6,35 +6,6 @@ import { Link } from "react-router-dom";
 const Login = () => {
     const [showPassword, setShowPassword] = useState(false);
 
-    const formRef = useRef(null);
-
-    useEffect(() => {
-        const handleWheel = (e) => {
-            if (e.ctrlKey) {
-                e.preventDefault();
-            }
-        };
-        const handleKeyDown = (e) => {
-            if (e.ctrlKey && (e.key === "+" || e.key === "-" || e.key === "=" || e.key === "0")) {
-                e.preventDefault();
-            }
-        };
-
-        const formEl = formRef.current;
-        if (formEl) {
-            formEl.addEventListener("wheel", handleWheel, { passive: false });
-            formEl.addEventListener("keydown", handleKeyDown);
-        }
-
-        return () => {
-            if (formEl) {
-                formEl.removeEventListener("wheel", handleWheel);
-                formEl.removeEventListener("keydown", handleKeyDown);
-            }
-        };
-    }, []);
-
-
     return (
         <div className="auth-form page-transition">
             <h2 className="form-title">Đăng nhập</h2>
