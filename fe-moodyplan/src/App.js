@@ -3,6 +3,8 @@ import "./styles/index.scss";
 import Home from "./pages/home/Home";
 import PrivateRoute from "./routes/PrivateRoute";
 import AppRouter from "./routes/AppRouter";
+import MainLayout from "./layouts/MainLayout";
+import ProjectPage from "./pages/project/ProjectPage";
 
 function App() {
   return (
@@ -14,16 +16,18 @@ function App() {
 
         {/* Private route */}
         <Route
-          path="/"
           element={
             <PrivateRoute>
-              <Home />
+              <MainLayout />
             </PrivateRoute>
           }
-        />
+        >
+          <Route path="/" element={<Home />} />
+          <Route path=":project_id/:project_title" element={<ProjectPage />} />
+        </Route>
 
       </Routes>
-    </BrowserRouter>
+    </BrowserRouter >
   );
 }
 

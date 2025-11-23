@@ -7,7 +7,7 @@ const AuthComponent = () => {
     const [isLogin, setIsLogin] = useState(true);
 
     return (
-        <div className='authComponent-wapper'>
+        <div className='authLayout-wapper'>
             <Outlet />
         </div>
 
