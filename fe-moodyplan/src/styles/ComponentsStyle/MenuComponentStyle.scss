@@ -1,0 +1,227 @@
+.menu-componet-wapper {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    background-color: $bg-color;
+    font-size: 14px;
+
+    .menu-account {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: 2px solid $border-color;
+        padding-bottom: 10px;
+
+        .account-info {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+
+            .account-avatar img {
+                width: 32px;
+                height: 32px;
+                border-radius: 50%;
+                object-fit: cover;
+                border: 2px solid $btn-bg;
+            }
+
+            .account-name {
+                color: $text-color;
+                font-weight: 500;
+            }
+
+            &:hover .account-name {
+                color: $text-accent;
+                text-decoration: underline;
+            }
+        }
+
+        svg {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+            color: $icon-color;
+
+            &:hover {
+                background-color: $hover-bg;
+            }
+        }
+    }
+
+    .menu-content {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        padding-top: 10px;
+
+        .add-task-btn {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 6px 12px;
+            margin-bottom: 12px;
+            cursor: pointer;
+            font-weight: 500;
+            font-size: 14px;
+            border-radius: 6px;
+            transition: background-color 0.2s, transform 0.2s;
+            background-color: $btn-bg;
+            color: $btn-text-color;
+
+            svg {
+                width: 24px;
+                height: 24px;
+                background-color: $btn-bg;
+                color: $btn-text-color;
+                border-radius: 50%;
+                padding: 3px;
+            }
+
+            &:hover {
+                // background-color: $hover-bg;
+                transform: scale(0.98);
+            }
+        }
+
+        .getting-started {
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 6px;
+            font-size: 13px;
+            color: $text-color;
+
+            .getting-started-link {
+                display: flex;
+                align-items: center;
+                justify-content: flex-start;
+                gap: 10px;
+                text-decoration: none;
+
+                .getting-started-icon {
+                    svg {
+                        display: block;
+                        width: 20px;
+                        height: 20px;
+                        cursor: pointer;
+                        color: $icon-color;
+                    }
+                }
+
+                .getting-started-title {
+                    color: $text-color;
+                    font-weight: 500;
+                    font-size: 14px;
+                }
+            }
+
+            &:hover {
+                background-color: $hover-bg;
+            }
+
+            &.active {
+                background-color: #ffefe5;
+                
+                .getting-started-title {
+                    color: $text-accent;
+                }
+
+                .getting-started-icon svg {
+                    color: $text-accent;
+                }
+            }
+        }
+
+        .menu-projects {
+            .menu-heading {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-bottom: 10px;
+                padding: 5px 10px;
+                border-radius: 6px;
+                cursor: pointer;
+                transition: background-color 0.2s;
+
+                .menu-heading-text {
+                    font-weight: 600;
+                    font-size: 15px;
+                    color: $text-color;
+                }
+
+                .add-project-btn {
+                    align-items: center;
+                    justify-content: center;
+                    cursor: pointer;
+
+                    svg {
+                        width: 20px;
+                        height: 20px;
+                        color: $btn-bg;
+                        display: block;
+                    }
+
+                    &:hover svg {
+                        color: $text-accent;
+                    }
+                }
+            }
+
+            .project-list {
+                .project-item {
+                    position: relative;
+                    border-radius: 6px;
+                    transition: all 0.2s;
+                    margin-left: 15px;
+
+                    .project-link {
+                        display: flex;
+                        align-items: center;
+                        gap: 10px;
+                        padding: 8px 10px;
+                        text-decoration: none;
+                        color: $text-color;
+                        border-radius: 6px;
+                        width: 100%;
+                    }
+
+                    .project-action {
+                        display: none;
+                        position: absolute;
+                        right: 10px;
+                        top: 50%;
+                        transform: translateY(-50%);
+                        cursor: pointer;
+                        font-size: 18px;
+                        color: $btn-bg;
+                        transition: color 0.2s;
+
+                        &:hover {
+                            color: $text-accent;
+                        }
+                    }
+
+                    &:hover {
+                        background-color: $hover-bg;
+
+                        .project-action {
+                            display: block;
+                        }
+                    }
+
+                    &.active {
+                        background-color: #ffefe5;
+                        
+                        .project-link {
+                            color: $text-accent;
+                        }
+
+                        .project-icon svg {
+                            color: $text-accent;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

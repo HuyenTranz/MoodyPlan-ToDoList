@@ -1,4 +1,4 @@
-$bg-color: #f4f4f4; // Màu nền chính của menu, input, dropdown, v.v.
+$bg-color: #fff9f9; // Màu nền chính của menu, input, dropdown, v.v.
 $hover-bg: #ebebeb; // Màu nền khi hover
 $active-bg: #ffefe5; // Màu nền khi active (như item được chọn)
 
@@ -37,7 +37,9 @@ code {
     animation: slide-up 0.2s ease-out forwards;
 }
 
-@import "./ComponetsStyle/AuthComponent.scss";
+@import "./LayoutsStyle/AuthLayoutStyle.scss";
+@import "./LayoutsStyle/MainLayoutStyle.scss";
 @import "./PagesStyle/LoginStyle.scss";
 @import "./PagesStyle/VerificationStyle.scss";
+@import "./ComponentsStyle/MenuComponentStyle.scss";
 

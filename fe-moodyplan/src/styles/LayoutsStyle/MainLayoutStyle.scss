@@ -1,0 +1,22 @@
+.main-wapper {
+    height: 100vh;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    background-color: white;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    .main-menu {
+        width: 250px;
+        height: 100vh;
+        background-color: $bg-color;
+    }
+
+    .main-content {
+        flex: 1;
+        margin: 40px 100px;
+        overflow-y: auto;
+    }
+}
