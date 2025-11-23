@@ -34,18 +34,20 @@ const MenuComponent = () => {
                 <BsLayoutSidebar />
             </div>
 
-            <div className="menu-content">
+            <div className="menu-add-task">
                 <div className="add-task-btn">
                     <RiAddLine /> Add task
                 </div>
+            </div>
 
-                <div className={`getting-started ${location.pathname === "/" ? "active" : ""}`}>
-                    <NavLink to="/" className="getting-started-link">
-                        <div className="getting-started-icon"><LuInbox /></div>
-                        <div className="getting-started-title">Getting Started</div>
-                    </NavLink>
-                </div>
+            <div className={`menu-inbox-item ${location.pathname === '/' ? 'active' : ''}`}>
+                <NavLink to="/" className="inbox-link">
+                    <div className="inbox-icon"><LuInbox /></div>
+                    <div className="inbox-title">Inbox</div>
+                </NavLink>
+            </div>
 
+            <div className="menu-content">
                 <div className="menu-projects">
                     <div className="menu-heading">
                         <div className="menu-heading-text">MY PROJECTS</div>

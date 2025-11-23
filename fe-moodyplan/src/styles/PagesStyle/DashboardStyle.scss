@@ -1,0 +1,72 @@
+@use '../variables.scss' as vars;
+
+.dashboard-wapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+
+    .dashboard-content {
+        width: 100%;
+        padding: 0 230px;
+
+        .big-page-title {
+            height: 61.6px;
+            display: flex;
+            align-items: flex-end;
+            font-size: 26px;
+            font-weight: 700;
+            color: vars.$text-color;
+        }
+    }
+
+    .empty-state {
+        text-align: center;
+        margin-top: 20px;
+
+        .image-wrapper {
+            display: flex;
+            justify-content: center;
+
+            .empty-image {
+                width: 220px;
+                opacity: 0.95;
+                user-select: none;
+            }
+        }
+
+        .title {
+            font-size: 16px;
+            font-weight: 600;
+            color: vars.$text-color;
+        }
+
+        .subtitle {
+            margin: 0 auto;
+            width: 260px;
+            font-size: 14px;
+            color: vars.$text-secondary;
+            line-height: 1.5;
+        }
+
+        .create-list-button {
+            width: 100%;
+            max-width: 220px;
+            margin-top: 15px;
+            padding: 10px 0px;
+            background-color: vars.$btn-bg;
+            color: vars.$btn-text-color;
+            border: none;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+
+            &:hover {
+                background-color: vars.$btn-bg-hover;
+                transform: translateY(-1px);
+            }
+        }
+    }
+
+}

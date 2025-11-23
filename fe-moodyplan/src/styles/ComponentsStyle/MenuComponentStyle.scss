@@ -8,10 +8,10 @@
     font-size: 14px;
 
     .menu-account {
+        height: 57.6px;
         display: flex;
         align-items: center;
         justify-content: space-between;
-        border-bottom: 2px solid vars.$border-color;
         padding-bottom: 10px;
 
         .account-info {
@@ -51,18 +51,14 @@
         }
     }
 
-    .menu-content {
-        flex: 1;
-        display: flex;
-        flex-direction: column;
-        padding-top: 10px;
+    .menu-add-task {
+        margin-bottom: 10px;
 
         .add-task-btn {
             display: flex;
             justify-content: center;
             align-items: center;
             padding: 6px 12px;
-            margin-bottom: 12px;
             cursor: pointer;
             font-weight: 500;
             font-size: 14px;
@@ -85,54 +81,63 @@
                 transform: scale(0.98);
             }
         }
+    }
 
-        .getting-started {
-            padding: 10px;
-            margin-bottom: 10px;
-            border-radius: 6px;
-            font-size: 13px;
-            color: vars.$text-color;
+    .menu-inbox-item {
+        padding: 9px 12px;
+        margin-bottom: 15px;
+        border-radius: 6px;
+        font-size: 13px;
+        color: vars.$text-color;
 
-            .getting-started-link {
-                display: flex;
-                align-items: center;
-                justify-content: flex-start;
-                gap: 10px;
-                text-decoration: none;
+        .inbox-link {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 10px;
+            text-decoration: none;
 
-                .getting-started-icon {
-                    svg {
-                        display: block;
-                        width: 20px;
-                        height: 20px;
-                        cursor: pointer;
-                        color: vars.$icon-color;
-                    }
-                }
-
-                .getting-started-title {
-                    color: vars.$text-color;
-                    font-weight: 500;
-                    font-size: 14px;
+            .inbox-icon {
+                svg {
+                    display: block;
+                    width: 20px;
+                    height: 20px;
+                    cursor: pointer;
+                    color: vars.$icon-color;
                 }
             }
 
-            &:hover {
-                background-color: vars.$hover-bg;
+            .inbox-title {
+                color: vars.$text-color;
+                font-weight: 500;
+                font-size: 14px;
             }
+        }
 
-            &.active {
-                background-color: #ffefe5;
-                
-                .getting-started-title {
+        &:hover {
+            background-color: vars.$hover-bg;
+        }
+
+        &.active {
+            background-color: #ffefe5;
+
+            .inbox-link {
+                .inbox-title {
                     color: vars.$text-accent;
                 }
 
-                .getting-started-icon svg {
+                .inbox-icon svg {
                     color: vars.$text-accent;
                 }
             }
         }
+
+    }
+
+    .menu-content {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
 
         .menu-projects {
             .menu-heading {
@@ -213,7 +218,7 @@
 
                     &.active {
                         background-color: #ffefe5;
-                        
+
                         .project-link {
                             color: vars.$text-accent;
                         }
