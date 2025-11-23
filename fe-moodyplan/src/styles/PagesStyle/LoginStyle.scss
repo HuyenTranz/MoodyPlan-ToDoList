@@ -1,3 +1,6 @@
+@use "sass:color";
+@use "../variables.scss" as vars;
+
 .auth-form {
     padding: 10px 30px 30px;
     border-radius: 12px;
@@ -9,7 +12,7 @@
         text-align: center;
         margin-bottom: 30px;
         font-size: 26px;
-        color: $text-color;
+        color: vars.$text-color;
     }
 
     form {
@@ -20,19 +23,19 @@
                 display: block;
                 margin-bottom: 6px;
                 font-size: 14px;
-                color: $text-color;
+                color: vars.$text-color;
             }
 
             .input {
                 width: 100%;
                 padding: 12px;
-                border: 1px solid $border-color;
+                border: 1px solid vars.$border-color;
                 border-radius: 8px;
                 font-size: 14px;
                 transition: border-color 0.2s;
 
                 &:focus {
-                    border-color: $border-color-focus;
+                    border-color: vars.$border-color-focus;
                     outline: none;
                 }
             }
@@ -61,7 +64,7 @@
 
             a {
                 font-size: 14px;
-                color: $text-accent;
+                color: vars.$text-accent;
 
                 &:hover {
                     text-decoration: underline;
@@ -72,7 +75,7 @@
         .auth-button {
             width: 100%;
             padding: 12px;
-            background-color: $btn-bg;
+            background-color: vars.$btn-bg;
             color: #fff;
             border: none;
             border-radius: 8px;
@@ -81,7 +84,7 @@
             transition: background-color 0.2s;
 
             &:hover {
-                background-color: $btn-bg-hover;
+                background-color: vars.$btn-bg-hover;
             }
         }
     }
@@ -99,14 +102,14 @@
             .line {
                 flex: 1;
                 height: 1px;
-                background-color: $border-color;
+                background-color: vars.$border-color;
                 margin: 0 10px;
                 border-radius: 1px;
             }
 
             .text {
                 font-size: 14px;
-                color: $text-color;
+                color: vars.$text-color;
                 text-transform: uppercase;
             }
         }
@@ -123,13 +126,13 @@
                 justify-content: center;
                 gap: 10px;
                 transition: all 0.2s;
-                background-color: $bg-color;
-                border: 1px solid $border-color;
-                color: $text-color;
+                background-color: vars.$bg-color;
+                border: 1px solid vars.$border-color;
+                color: vars.$text-color;
 
                 &:hover {
-                    background-color: $hover-bg;
-                    border-color: darken($border-color, 15%);
+                    background-color: vars.$hover-bg;
+                    border-color: color.scale(vars.$border-color, $lightness: -15%);
                 }
 
                 svg {
@@ -145,7 +148,7 @@
         color: #555;
 
         a {
-            color: $text-accent;
+            color: vars.$text-accent;
             text-decoration: none;
 
             &:hover {

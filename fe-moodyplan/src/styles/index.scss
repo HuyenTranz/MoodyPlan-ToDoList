@@ -1,18 +1,9 @@
-$bg-color: #fff9f9; // Màu nền chính của menu, input, dropdown, v.v.
-$hover-bg: #ebebeb; // Màu nền khi hover
-$active-bg: #ffefe5; // Màu nền khi active (như item được chọn)
-
-$text-color: #333; // Màu chữ chính (text input, tiêu đề, v.v.)
-$text-accent: #af2b13; // Màu chữ nhấn mạnh (như active item, highlight)
-
-$icon-color: #333; // Màu biểu tượng
-
-$border-color: #ccc; // Màu viền (input, dropdown, ...)
-$border-color-focus: #af2b13; // Màu viền khi focus (input, dropdown, ...)
-
-$btn-bg: #d44731; // Màu nền nút chính (nút submit, thêm,...)
-$btn-bg-hover: #af2b13; // Màu khi hover nút chính
-$btn-text-color: #f4f4f4; // Màu chữ của nút chính
+@use "./variables" as vars;
+@use "./LayoutsStyle/AuthLayoutStyle.scss";
+@use "./LayoutsStyle/MainLayoutStyle.scss";
+@use "./PagesStyle/LoginStyle.scss";
+@use "./PagesStyle/VerificationStyle.scss";
+@use "./ComponentsStyle/MenuComponentStyle.scss";
 
 * {
     box-sizing: border-box;
@@ -36,10 +27,4 @@ code {
 .page-transition {
     animation: slide-up 0.2s ease-out forwards;
 }
-
-@import "./LayoutsStyle/AuthLayoutStyle.scss";
-@import "./LayoutsStyle/MainLayoutStyle.scss";
-@import "./PagesStyle/LoginStyle.scss";
-@import "./PagesStyle/VerificationStyle.scss";
-@import "./ComponentsStyle/MenuComponentStyle.scss";
 

@@ -1,9 +1,6 @@
-import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 const ForgotPassword = () => {
-    const [email, setEmail] = useState("");
-
     return (
         <div className="auth-form page-transition">
             <h2 className="form-title">Quên mật khẩu</h2>

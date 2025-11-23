@@ -1,15 +1,17 @@
+@use "../variables.scss" as vars;
+
 .menu-componet-wapper {
     display: flex;
     flex-direction: column;
     padding: 20px;
-    background-color: $bg-color;
+    background-color: vars.$bg-color;
     font-size: 14px;
 
     .menu-account {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        border-bottom: 2px solid $border-color;
+        border-bottom: 2px solid vars.$border-color;
         padding-bottom: 10px;
 
         .account-info {
@@ -23,16 +25,16 @@
                 height: 32px;
                 border-radius: 50%;
                 object-fit: cover;
-                border: 2px solid $btn-bg;
+                border: 2px solid vars.$btn-bg;
             }
 
             .account-name {
-                color: $text-color;
+                color: vars.$text-color;
                 font-weight: 500;
             }
 
             &:hover .account-name {
-                color: $text-accent;
+                color: vars.$text-accent;
                 text-decoration: underline;
             }
         }
@@ -41,10 +43,10 @@
             width: 20px;
             height: 20px;
             cursor: pointer;
-            color: $icon-color;
+            color: vars.$icon-color;
 
             &:hover {
-                background-color: $hover-bg;
+                background-color: vars.$hover-bg;
             }
         }
     }
@@ -66,20 +68,20 @@
             font-size: 14px;
             border-radius: 6px;
             transition: background-color 0.2s, transform 0.2s;
-            background-color: $btn-bg;
-            color: $btn-text-color;
+            background-color: vars.$btn-bg;
+            color: vars.$btn-text-color;
 
             svg {
                 width: 24px;
                 height: 24px;
-                background-color: $btn-bg;
-                color: $btn-text-color;
+                background-color: vars.$btn-bg;
+                color: vars.$btn-text-color;
                 border-radius: 50%;
                 padding: 3px;
             }
 
             &:hover {
-                // background-color: $hover-bg;
+                // background-color: vars.$hover-bg;
                 transform: scale(0.98);
             }
         }
@@ -89,7 +91,7 @@
             margin-bottom: 10px;
             border-radius: 6px;
             font-size: 13px;
-            color: $text-color;
+            color: vars.$text-color;
 
             .getting-started-link {
                 display: flex;
@@ -104,30 +106,30 @@
                         width: 20px;
                         height: 20px;
                         cursor: pointer;
-                        color: $icon-color;
+                        color: vars.$icon-color;
                     }
                 }
 
                 .getting-started-title {
-                    color: $text-color;
+                    color: vars.$text-color;
                     font-weight: 500;
                     font-size: 14px;
                 }
             }
 
             &:hover {
-                background-color: $hover-bg;
+                background-color: vars.$hover-bg;
             }
 
             &.active {
                 background-color: #ffefe5;
                 
                 .getting-started-title {
-                    color: $text-accent;
+                    color: vars.$text-accent;
                 }
 
                 .getting-started-icon svg {
-                    color: $text-accent;
+                    color: vars.$text-accent;
                 }
             }
         }
@@ -146,7 +148,7 @@
                 .menu-heading-text {
                     font-weight: 600;
                     font-size: 15px;
-                    color: $text-color;
+                    color: vars.$text-color;
                 }
 
                 .add-project-btn {
@@ -157,12 +159,12 @@
                     svg {
                         width: 20px;
                         height: 20px;
-                        color: $btn-bg;
+                        color: vars.$btn-bg;
                         display: block;
                     }
 
                     &:hover svg {
-                        color: $text-accent;
+                        color: vars.$text-accent;
                     }
                 }
             }
@@ -180,7 +182,7 @@
                         gap: 10px;
                         padding: 8px 10px;
                         text-decoration: none;
-                        color: $text-color;
+                        color: vars.$text-color;
                         border-radius: 6px;
                         width: 100%;
                     }
@@ -193,16 +195,16 @@
                         transform: translateY(-50%);
                         cursor: pointer;
                         font-size: 18px;
-                        color: $btn-bg;
+                        color: vars.$btn-bg;
                         transition: color 0.2s;
 
                         &:hover {
-                            color: $text-accent;
+                            color: vars.$text-accent;
                         }
                     }
 
                     &:hover {
-                        background-color: $hover-bg;
+                        background-color: vars.$hover-bg;
 
                         .project-action {
                             display: block;
@@ -213,11 +215,11 @@
                         background-color: #ffefe5;
                         
                         .project-link {
-                            color: $text-accent;
+                            color: vars.$text-accent;
                         }
 
                         .project-icon svg {
-                            color: $text-accent;
+                            color: vars.$text-accent;
                         }
                     }
                 }

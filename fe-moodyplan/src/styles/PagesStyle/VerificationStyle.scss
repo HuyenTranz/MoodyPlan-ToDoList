@@ -1,8 +1,10 @@
+@use "../variables" as vars;
+
 .auth-form {
     .instruction {
         text-align: center;
         font-size: 14px;
-        color: $text-color;
+        color: vars.$text-color;
         margin-bottom: 20px;
     }
 
@@ -17,14 +19,14 @@
             height: 50px;
             font-size: 24px;
             text-align: center;
-            border: 1px solid $border-color;
+            border: 1px solid vars.$border-color;
             border-radius: 8px;
             transition: border-color 0.2s;
 
             &:focus {
-                border-color: $border-color-focus;
+                border-color: vars.$border-color-focus;
                 outline: none;
-                box-shadow: 0 0 3px rgba($border-color-focus, 0.3);
+                box-shadow: 0 0 3px rgba(vars.$border-color-focus, 0.3);
             }
         }
     }
