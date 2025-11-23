@@ -1,9 +1,16 @@
 @use "./variables" as vars;
+// Components
+@use "./ComponentsStyle/HeaderStyle.scss";
+@use "./ComponentsStyle/MenuComponentStyle.scss";
+
+// Layouts
 @use "./LayoutsStyle/AuthLayoutStyle.scss";
 @use "./LayoutsStyle/MainLayoutStyle.scss";
+
+// Pages
 @use "./PagesStyle/LoginStyle.scss";
 @use "./PagesStyle/VerificationStyle.scss";
-@use "./ComponentsStyle/MenuComponentStyle.scss";
+@use "./PagesStyle/DashboardStyle.scss";
 
 * {
     box-sizing: border-box;

@@ -1,24 +1,28 @@
 @use "../variables.scss" as vars;
 
 .main-wapper {
-    height: 100vh;
+    height: 100vh; // Đặt chiều cao bằng đúng màn hình thiết bị
+    width: 100%; 
     display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
+    overflow: hidden; // Ẩn scroll của toàn bộ trang (body), chỉ để scroll ở phần con
     background-color: white;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
 
     .main-menu {
-        width: 250px;
-        height: 100vh;
+        width: 280px;
+        height: 100%; // Chiều cao ăn theo cha (100vh)
         background-color: vars.$bg-color;
+        overflow: hidden; // Menu không cuộn, hoặc cuộn riêng nếu menu quá dài
+        flex-shrink: 0; // Đảm bảo menu không bị co lại khi màn hình nhỏ
     }
 
     .main-content {
         flex: 1;
-        margin: 40px 100px;
-        overflow-y: auto;
+        height: 100%; // Phải set height 100% để div này chiếm hết chiều cao còn lại
+        overflow-y: auto; // Kích hoạt thanh cuộn dọc khi nội dung dài hơn màn hình
+        position: relative;
+        padding: 0;
     }
 }

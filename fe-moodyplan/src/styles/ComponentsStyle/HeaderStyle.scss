@@ -1,0 +1,55 @@
+@use "../variables.scss" as vars;
+
+.main-header {
+    height: 55.2px;
+    width: 100%;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 40px;
+    background-color: transparent; // Mặc định trong suốt
+    transition: all 0.3s ease; // Hiệu ứng mượt cho background
+
+    .title-header {
+        font-size: 16px;
+        font-weight: 600;
+        color: black;
+        opacity: 0; // Mặc định ẩn đi
+        transform: translateY(5px); // Đẩy xuống 1 chút để lát trồi lên
+        transition: all 0.3s ease;
+        pointer-events: none; // Không nhận sự kiện khi ẩn
+    }
+
+    &.sticky {
+        background-color: rgba(255, 255, 255, 0.95);
+        // backdrop-filter: blur(10px);
+        border-bottom: 1px solid vars.$border-color;
+
+        .title-header {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: auto;
+        }
+    }
+
+    .breadcrumb-title {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+
+        .prefix {
+            color: #888;
+            font-weight: 400;
+            font-size: 14px;
+        }
+
+        .current-name {
+            color: black;
+            font-weight: 600;
+            font-size: 16px;
+        }
+    }
+}
