@@ -1,3 +1,5 @@
+@use "../variables.scss" as vars;
+
 .main-wapper {
     height: 100vh;
     display: flex;
@@ -11,7 +13,7 @@
     .main-menu {
         width: 250px;
         height: 100vh;
-        background-color: $bg-color;
+        background-color: vars.$bg-color;
     }
 
     .main-content {
