@@ -2,12 +2,14 @@ import React, { useState } from 'react';
 import { useLocation } from 'react-router-dom'; // Import useLocation
 import Header from '../../components/dashboard/Header';
 import todoEmptyImage from '../../assets/todo-empty.png';
-import ModalAddTask from '../../components/modalAddTask/ModalAddTask';
+import ModalAddTask from '../../components/modal/ModalAddTask';
+import ModalAddSection from '../../components/modal/ModalAddSection';
 
 const Dashboard = () => {
     const location = useLocation();
     const [empty, setEmpty] = useState(true);
     const [isOpenodalAddTask, setOpenModalAddTask] = useState(false);
+    const [isOpenodalSection, setOpenModalSection] = useState(false);
 
     // Lấy tiêu đề động từ URL
     let displayTitle = "Inbox";
@@ -16,8 +18,26 @@ const Dashboard = () => {
         displayTitle = decodeURIComponent(pathParts[1]);
     }
 
-    const handleOpenModal = () => setOpenModalAddTask(true);
-    const handleCloseModal = () => setOpenModalAddTask(false);
+    const handleOpenModalAddTask = () => {
+        setOpenModalAddTask(true);
+        setEmpty(false);
+    }
+
+    const handleCloseModalAddTask = () => {
+        setOpenModalAddTask(false);
+        setEmpty(true);
+    };
+
+    const handleOpenModalSection = () => {
+        setOpenModalSection(true);
+        setEmpty(false);
+    }
+
+    const handleCloseModalSection = () => {
+        setOpenModalSection(false);
+        // setEmpty(true);
+    };
+
 
     return (
         <div className="dashboard-wapper">
@@ -26,6 +46,12 @@ const Dashboard = () => {
             <div className="dashboard-content">
                 {/* Hiển thị tiêu đề động */}
                 <div className="big-page-title">{displayTitle}</div>
+
+                {isOpenodalAddTask && (
+                    <div className="modal-backdrop-inbox">
+                        <ModalAddTask onClose={handleCloseModalAddTask} />
+                    </div>
+                )}
 
                 {empty ? (
                     <div className="empty-state">
@@ -38,26 +64,33 @@ const Dashboard = () => {
                             Clear your mind now, organize when you’re ready.</p>
                         <button
                             className="create-list-button"
-                        // onClick={handleOpenModal}
+                            onClick={handleOpenModalAddTask}
                         >
                             Add Task
                         </button>
                     </div>
                 ) : (
                     <div className="task-lists">
-                        <h3>Tasks for: {displayTitle}</h3>
-                        <p>Content goes here...</p>
+                        {/* Chỉ hiện Add section khi modal chưa mở */}
+                        {!isOpenodalSection && (
+                            <div className="divider-wrapper">
+                                <span className="line"></span>
+                                <button className="btn-text" onClick={handleOpenModalSection}>
+                                    Add section
+                                </button>
+                                <span className="line"></span>
+                            </div>
+                        )}
+
+                        {/* Modal Section */}
+                        {isOpenodalSection && (
+                            <div className="modal-backdrop-inbox">
+                                <ModalAddSection onClose={handleCloseModalSection} />
+                            </div>
+                        )}
                     </div>
                 )}
             </div>
-
-            {/* {isOpenodalAddTask && (
-                <div className="modal-backdrop">
-                    <ModalAddTask
-                        onClose={handleCloseModal}
-                    />
-                </div>
-            )} */}
         </div>
     );
 };

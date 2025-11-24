@@ -17,6 +17,54 @@
             font-weight: 700;
             color: vars.$text-color;
         }
+
+        .modal-backdrop-inbox {
+            width: 100%;
+            max-width: 900px;
+            margin-top: 20px;
+        }
+
+        .task-lists {
+            margin-top: 50px;
+
+            .divider-wrapper {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin: 20px 0;
+                cursor: pointer;
+
+                .line {
+                    flex: 1;
+                    height: 1px;
+                    background-color: transparent;
+                    margin: 0 10px;
+                    transition: background-color 0.25s ease;
+                    transition-delay: 0s; // mặc định không delay
+                }
+
+                .btn-text {
+                    font-size: 14px;
+                    color: vars.$bg-color;
+                    background-color: transparent;
+                    border: none;
+                    transition: color 0.25s ease;
+                    transition-delay: 0s; // mặc định không delay
+                }
+
+                &:hover {
+                    .line {
+                        background-color: vars.$btn-bg-hover;
+                        transition-delay: 0.2s; // delay trước khi hiện
+                    }
+
+                    .btn-text {
+                        color: vars.$btn-bg-hover;
+                        transition-delay: 0.2s; // delay text đổi màu
+                    }
+                }
+            }
+        }
     }
 
     .empty-state {

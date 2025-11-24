@@ -4,7 +4,7 @@ import { HiOutlineHashtag } from "react-icons/hi";
 import { BsLayoutSidebar, BsThreeDots } from "react-icons/bs";
 import { RiAddLine } from "react-icons/ri";
 import { LuInbox } from "react-icons/lu";
-import ModalAddTask from '../modalAddTask/ModalAddTask';
+import ModalAddTask from '../modal/ModalAddTask';
 
 const MenuComponent = () => {
     const location = useLocation(); // dùng để check active

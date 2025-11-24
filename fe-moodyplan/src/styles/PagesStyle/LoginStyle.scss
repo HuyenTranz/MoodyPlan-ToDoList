@@ -28,7 +28,7 @@
 
             .input {
                 width: 100%;
-                padding: 12px;
+                padding: 8px;
                 border: 1px solid vars.$border-color;
                 border-radius: 8px;
                 font-size: 14px;
@@ -74,7 +74,8 @@
 
         .auth-button {
             width: 100%;
-            padding: 12px;
+            // padding: 8px;
+            height: 34.4px;
             background-color: vars.$btn-bg;
             color: #fff;
             border: none;
@@ -117,7 +118,8 @@
         .social-buttons {
             .social-button {
                 width: 100%;
-                padding: 12px;
+                // padding: 7.2px; 
+                height: 34.4px;
                 border-radius: 8px;
                 font-size: 14px;
                 cursor: pointer;
