@@ -2,10 +2,12 @@ import React, { useState } from 'react';
 import { useLocation } from 'react-router-dom'; // Import useLocation
 import Header from '../../components/dashboard/Header';
 import todoEmptyImage from '../../assets/todo-empty.png';
+import ModalAddTask from '../../components/modalAddTask/ModalAddTask';
 
 const Dashboard = () => {
-    const [empty, setEmpty] = useState(true);
     const location = useLocation();
+    const [empty, setEmpty] = useState(true);
+    const [isOpenodalAddTask, setOpenModalAddTask] = useState(false);
 
     // Lấy tiêu đề động từ URL
     let displayTitle = "Inbox";
@@ -13,6 +15,9 @@ const Dashboard = () => {
     if (pathParts.length >= 2) {
         displayTitle = decodeURIComponent(pathParts[1]);
     }
+
+    const handleOpenModal = () => setOpenModalAddTask(true);
+    const handleCloseModal = () => setOpenModalAddTask(false);
 
     return (
         <div className="dashboard-wapper">
@@ -31,7 +36,10 @@ const Dashboard = () => {
                         <h3 className="title">Capture now, plan later</h3>
                         <p className="subtitle">Inbox is your go-to spot for quick task entry.
                             Clear your mind now, organize when you’re ready.</p>
-                        <button className="create-list-button" onClick={() => setEmpty(false)}>
+                        <button
+                            className="create-list-button"
+                        // onClick={handleOpenModal}
+                        >
                             Add Task
                         </button>
                     </div>
@@ -42,6 +50,14 @@ const Dashboard = () => {
                     </div>
                 )}
             </div>
+
+            {/* {isOpenodalAddTask && (
+                <div className="modal-backdrop">
+                    <ModalAddTask
+                        onClose={handleCloseModal}
+                    />
+                </div>
+            )} */}
         </div>
     );
 };
