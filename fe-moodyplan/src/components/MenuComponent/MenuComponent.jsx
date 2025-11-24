@@ -1,12 +1,18 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { NavLink, useLocation } from 'react-router-dom'
 import { HiOutlineHashtag } from "react-icons/hi";
 import { BsLayoutSidebar, BsThreeDots } from "react-icons/bs";
 import { RiAddLine } from "react-icons/ri";
 import { LuInbox } from "react-icons/lu";
+import ModalAddTask from '../modal/ModalAddTask';
 
 const MenuComponent = () => {
     const location = useLocation(); // dùng để check active
+    const [empty, setEmpty] = useState(true);
+    const [isOpenModalAddTask, setOpenModalAddTask] = useState(false);
+
+    const handleOpenModal = () => setOpenModalAddTask(true);
+    const handleCloseModal = () => setOpenModalAddTask(false);
 
     const account_info = {
         user_id: "user_123abc",
@@ -35,9 +41,9 @@ const MenuComponent = () => {
             </div>
 
             <div className="menu-add-task">
-                <div className="add-task-btn">
+                <button className="add-task-btn" onClick={handleOpenModal}>
                     <RiAddLine /> Add task
-                </div>
+                </button>
             </div>
 
             <div className={`menu-inbox-item ${location.pathname === '/' ? 'active' : ''}`}>
@@ -80,6 +86,14 @@ const MenuComponent = () => {
                     </div>
                 </div>
             </div>
+
+            {isOpenModalAddTask && (
+                <div className="modal-backdrop">
+                    <ModalAddTask
+                        onClose={handleCloseModal}
+                    />
+                </div>
+            )}
         </div>
     )
 }

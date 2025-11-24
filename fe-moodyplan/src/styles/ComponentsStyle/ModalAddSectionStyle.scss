@@ -1,0 +1,77 @@
+@use "sass:color";
+@use '../variables.scss' as vars;
+
+.modal-add-section {
+    background: #fff;
+    padding: 20px 25px;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+    width: 100%;
+    box-sizing: border-box;
+
+    .input-container {
+        margin-bottom: 15px;
+
+        .section-name-input {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid vars.$border-color;
+            border-radius: 8px;
+            font-size: 13px;
+            box-sizing: border-box;
+            color: vars.$text-color;
+            transition: border-color 0.2s;
+
+            &::placeholder {
+                color: vars.$text-color;
+                opacity: 0.6;
+            }
+
+            &:focus {
+                border-color: vars.$border-color-focus;
+                outline: none;
+            }
+        }
+    }
+
+    .action-buttons {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        margin-top: 10px;
+
+        button {
+            padding: 5px 12px;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .cancel-button {
+            color: vars.$text-color;
+            background: none;
+            border: 1px solid vars.$border-color;
+
+            &:hover {
+                background-color: vars.$hover-bg;
+            }
+        }
+
+        .add-section-button {
+            background: vars.$btn-bg;
+            color: white;
+            border: none;
+
+            &:disabled {
+                opacity: 0.6;
+                cursor: not-allowed;
+            }
+
+            &:hover:not(:disabled) {
+                background-color: color.scale(vars.$btn-bg, $lightness: 10%);
+            }
+        }
+    }
+}

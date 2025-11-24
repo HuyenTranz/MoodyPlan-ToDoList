@@ -1,0 +1,136 @@
+@use "sass:color";
+@use '../variables.scss' as vars;
+
+.add-task-modal-wrapper {
+
+    .add-task-card {
+        background-color: white;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        padding: 10px;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .form-group {
+        .input {
+            width: 100%;
+            border: none;
+            font-size: 16px;
+            font-weight: 500;
+            color: vars.$text-color;
+            background: transparent;
+
+            &:focus {
+                outline: none;
+            }
+
+            &::placeholder {
+                color: vars.$text-color;
+            }
+        }
+    }
+
+    .description-group {
+        margin-bottom: 15px;
+
+        .description-input {
+            font-size: 13px;
+            color: vars.$text-color;
+        }
+    }
+
+    .task-options-row {
+        display: flex;
+        gap: 8px;
+        margin-bottom: 20px;
+
+        .option-button {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            padding: 5px 12px;
+            border-radius: 6px;
+            border: 1px solid vars.$border-color;
+            background: transparent;
+            color: vars.$text-color;
+            font-size: 13px;
+            cursor: pointer;
+            transition: 0.2s;
+
+            &:hover {
+                background-color: vars.$hover-bg;
+                border-color: 1px solid vars.$border-color;
+            }
+
+            svg {
+                font-size: 13px;
+            }
+        }
+    }
+
+    .task-footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-top: 1px solid vars.$border-color;
+        padding-top: 15px;
+        margin-top: 10px;
+
+        .project-dropdown-toggle {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            padding: 5px 12px;
+            border-radius: 6px;
+            font-size: 13px;
+            color: vars.$text-color;
+            cursor: pointer;
+            border: none;
+            background: transparent;
+
+            &:hover {
+                background-color: vars.$hover-bg;
+            }
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 10px;
+
+            button {
+                padding: 5px 12px;
+                border-radius: 6px;
+                font-size: 13px;
+                font-weight: 500;
+                cursor: pointer;
+                transition: 0.2s;
+            }
+
+            .cancel-button {
+                color: vars.$text-color;
+                background: none;
+                border: 1px solid vars.$border-color;
+
+                &:hover {
+                    background-color: vars.$hover-bg;
+                }
+            }
+
+            .add-task-button {
+                background: vars.$btn-bg;
+                color: white;
+                border: none;
+
+                &:disabled {
+                    opacity: 0.6;
+                    cursor: not-allowed;
+                }
+
+                &:hover:not(:disabled) {
+                    background-color: color.scale(vars.$btn-bg, $lightness: 10%);
+                }
+            }
+        }
+    }
+}

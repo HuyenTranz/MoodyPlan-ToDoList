@@ -55,6 +55,8 @@
         margin-bottom: 10px;
 
         .add-task-btn {
+            width: 100%;
+            max-width: 240px;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -66,6 +68,7 @@
             transition: background-color 0.2s, transform 0.2s;
             background-color: vars.$btn-bg;
             color: vars.$btn-text-color;
+            border: none;
 
             svg {
                 width: 24px;
@@ -230,5 +233,15 @@
                 }
             }
         }
+    }
+
+    .modal-backdrop {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 1000;
+        width: 90%;
+        max-width: 650px;
     }
 }
