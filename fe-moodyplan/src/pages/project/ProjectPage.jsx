@@ -2,11 +2,14 @@ import { useParams } from 'react-router-dom'
 import Header from '../../components/dashboard/Header'
 
 const ProjectPage = () => {
-    const { project_id, title } = useParams()
+    const { project_id, title } = useParams();
 
     return (
         <div className="project-page">
-            <Header />
+            <Header 
+                displayTitle={title}
+                isProjectPage={true}
+            />
 
             <div className="project-content" style={{
                 backgroundColor: '#f4f4f4',
@@ -16,6 +19,7 @@ const ProjectPage = () => {
             }}>
                 <p>This is the project page for project:</p>
             </div>
+
             <h1>{title}</h1>
             <p>Project ID: {project_id}</p>
         </div>

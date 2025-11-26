@@ -1,4 +1,4 @@
-import MenuComponent from '../components/menuComponent/MenuComponent'
+import MenuComponent from '../components/MenuComponent/MenuComponent'
 import { Outlet } from 'react-router-dom'
 
 const MainLayout = () => {

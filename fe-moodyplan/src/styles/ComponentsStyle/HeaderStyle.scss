@@ -14,6 +14,8 @@
     transition: all 0.3s ease; // Hiệu ứng mượt cho background
 
     .title-header {
+        position: relative;
+        width: 100%;
         font-size: 16px;
         font-weight: 600;
         color: black;
@@ -25,7 +27,6 @@
 
     &.sticky {
         background-color: rgba(255, 255, 255, 0.95);
-        // backdrop-filter: blur(10px);
         border-bottom: 1px solid vars.$border-color;
 
         .title-header {
@@ -36,18 +37,25 @@
     }
 
     .breadcrumb-title {
-        display: flex;
-        align-items: center;
-        gap: 5px;
+        position: relative;
 
+        // Nằm bên trái
         .prefix {
-            color: #888;
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            color: vars.$text-color;
             font-weight: 400;
             font-size: 14px;
         }
 
         .current-name {
-            color: black;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            color: vars.$text-color;
             font-weight: 600;
             font-size: 16px;
         }

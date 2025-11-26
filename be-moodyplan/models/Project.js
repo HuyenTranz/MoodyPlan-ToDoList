@@ -20,6 +20,10 @@ const ProjectSchema = new Schema({
         type: String,
         default: '#FFFFFF',
     },
+    is_default: {
+        type: Boolean,
+        default: false,
+    },
     is_favorite: {
         type: Boolean,
         default: false,

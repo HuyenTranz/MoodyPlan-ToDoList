@@ -2,39 +2,40 @@ import React, { useEffect, useState } from "react";
 import { useLocation, Link, useParams } from "react-router-dom"; // Thêm useLocation, Link
 
 const Header = () => {
-    const { project_title } = useParams();
+    const { project_id, project_title } = useParams();
     const [isSticky, setIsSticky] = useState(false);
 
-    // Logic xác định Title dựa trên URL
-    const isProjectPage = Boolean(project_title); // True nếu có project_title, False nếu là Inbox
-    const displayTitle = project_title ? decodeURIComponent(project_title) : "Inbox";
+
+    const isProjectPage = Boolean(project_id && project_title);
+    const displayTitle = isProjectPage ? decodeURIComponent(project_title) : "Inbox";
+
 
     useEffect(() => {
-        const handleScroll = (event) => {
-            const scrollTop = event.target.scrollTop;
-            setIsSticky(scrollTop > 60);
+        const scrollContainer = document.querySelector('.main-content');
+
+        const handleScroll = (e) => {
+            if (scrollContainer) {
+                setIsSticky(scrollContainer.scrollTop > 60);
+            } else {
+                setIsSticky(window.scrollY > 60);
+            }
         };
 
-        const timer = setTimeout(() => {
-            const scrollContainer = document.querySelector('.main-content');
-            if (scrollContainer) {
-                scrollContainer.addEventListener("scroll", handleScroll);
-            } else {
-                window.addEventListener("scroll", () => {
-                    setIsSticky(window.scrollY > 60);
-                });
-            }
-        }, 100);
+        if (scrollContainer) {
+            scrollContainer.addEventListener("scroll", handleScroll);
+        } else {
+            window.addEventListener("scroll", handleScroll);
+        }
 
         return () => {
-            clearTimeout(timer);
-            const scrollContainer = document.querySelector('.main-content');
             if (scrollContainer) {
                 scrollContainer.removeEventListener("scroll", handleScroll);
+            } else {
+                window.removeEventListener("scroll", handleScroll);
             }
-            window.removeEventListener("scroll", handleScroll);
         };
     }, []);
+
 
     return (
         <header className={`main-header ${isSticky ? "sticky" : ""}`}>
@@ -46,7 +47,7 @@ const Header = () => {
                         <span className="current-name">{displayTitle}</span>
                     </div>
                 ) : (
-                    "Inbox"
+                    displayTitle
                 )}
             </div>
         </header>
