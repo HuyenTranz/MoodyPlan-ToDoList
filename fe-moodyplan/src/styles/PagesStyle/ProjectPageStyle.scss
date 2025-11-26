@@ -1,0 +1,102 @@
+@use '../variables.scss' as vars;
+
+.project-page-wapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+
+    .project-content {
+        width: 100%;
+        padding: 0 230px;
+
+        .big-page-title {
+            height: 61.6px;
+            display: flex;
+            align-items: flex-end;
+            font-size: 26px;
+            font-weight: 700;
+            color: vars.$text-color;
+        }
+
+        .task-lists {
+            margin-top: 20px;
+
+            .add-task {
+                .add-task-btn {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    cursor: pointer;
+                    font-size: 14px;
+                    color: vars.$text-color;
+                    font-weight: 400;
+                    line-height: 24px;
+                    border-radius: 6px;
+                    transition: background-color 0.2s, transform 0.2s;
+                    background-color: transparent;
+                    border: none;
+                    gap: 10px;
+                    padding: 0;
+
+                    svg {
+                        width: 24px;
+                        height: 24px;
+                        color: vars.$btn-bg-hover;
+                        border-radius: 50%;
+                    }
+
+                    &:hover {
+                        transform: scale(0.98);
+                        color: vars.$text-accent;
+
+                        svg {
+                            background-color: vars.$btn-bg;
+                            color: vars.$btn-text-color;
+                        }
+
+                    }
+                }
+            }
+
+            // add section
+            .divider-wrapper {
+                padding: 10px 0px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin: 20px 0;
+                cursor: pointer;
+
+                .line {
+                    flex: 1;
+                    height: 1px;
+                    background-color: transparent;
+                    margin: 0 10px;
+                    transition: background-color 0.25s ease;
+                    transition-delay: 0s; // mặc định không delay
+                }
+
+                .btn-text {
+                    font-size: 14px;
+                    color: vars.$bg-color;
+                    background-color: transparent;
+                    border: none;
+                    transition: color 0.25s ease;
+                    transition-delay: 0s; // mặc định không delay
+                }
+
+                &:hover {
+                    .line {
+                        background-color: vars.$btn-bg-hover;
+                        transition-delay: 0.2s; // delay trước khi hiện
+                    }
+
+                    .btn-text {
+                        color: vars.$btn-bg-hover;
+                        transition-delay: 0.2s; // delay text đổi màu
+                    }
+                }
+            }
+        }
+    }
+}
