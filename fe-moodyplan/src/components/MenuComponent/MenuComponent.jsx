@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import { NavLink, useLocation } from 'react-router-dom'
+import React, { useState } from 'react';
+import { NavLink, useLocation } from 'react-router-dom';
 import { HiOutlineHashtag } from "react-icons/hi";
 import { BsLayoutSidebar, BsThreeDots } from "react-icons/bs";
 import { RiAddLine } from "react-icons/ri";
@@ -7,8 +7,7 @@ import { LuInbox } from "react-icons/lu";
 import ModalAddTask from '../modal/ModalAddTask';
 
 const MenuComponent = () => {
-    const location = useLocation(); // dùng để check active
-    const [empty, setEmpty] = useState(true);
+    const location = useLocation(); 
     const [isOpenModalAddTask, setOpenModalAddTask] = useState(false);
 
     const handleOpenModal = () => setOpenModalAddTask(true);
@@ -19,17 +18,23 @@ const MenuComponent = () => {
         name: "Huyen Tran",
         email: "huyen.tran@example.com",
         avatar_url: "https://i.pravatar.cc/150?img=47"
-    }
+    };
 
+    // Giả sử backend trả về data
     const projects = [
-        { project_id: "proj_01a8f92e", title: "Daily Tasks" },
-        { project_id: "proj_02f1c47b", title: "Study Plan" },
-        { project_id: "proj_03d9e21c", title: "Work Projects" },
-        { project_id: "proj_04b73f90", title: "Personal Notes" }
+        { project_id: "inbox_id", title: "Inbox", is_default: true },
+        { project_id: "getting_started_id", title: "Getting Started", is_default: true },
+        { project_id: "proj_01a8f92e", title: "Daily Tasks", is_default: false },
+        { project_id: "proj_02f1c47b", title: "Study Plan", is_default: false },
+        { project_id: "proj_03d9e21c", title: "Work Projects", is_default: false },
     ];
+
+    const inboxProject = projects.find(p => p.title.toLowerCase() === "inbox");
+    const otherProjects = projects.filter(p => p.project_id !== inboxProject.project_id);
 
     return (
         <div className="menu-componet-wapper">
+            {/* Account info */}
             <div className="menu-account">
                 <div className="account-info">
                     <div className="account-avatar">
@@ -40,19 +45,22 @@ const MenuComponent = () => {
                 <BsLayoutSidebar />
             </div>
 
+            {/* Add task */}
             <div className="menu-add-task">
                 <button className="add-task-btn" onClick={handleOpenModal}>
                     <RiAddLine /> Add task
                 </button>
             </div>
 
-            <div className={`menu-inbox-item ${location.pathname === '/' ? 'active' : ''}`}>
-                <NavLink to="/" className="inbox-link">
+            {/* Inbox cố định đầu */}
+            <div className={`menu-inbox-item ${location.pathname === '/inbox' ? 'active' : ''}`}>
+                <NavLink to="/inbox" className="inbox-link">
                     <div className="inbox-icon"><LuInbox /></div>
-                    <div className="inbox-title">Inbox</div>
+                    <div className="inbox-title">{inboxProject.title}</div>
                 </NavLink>
             </div>
 
+            {/* Các project còn lại */}
             <div className="menu-content">
                 <div className="menu-projects">
                     <div className="menu-heading">
@@ -63,7 +71,7 @@ const MenuComponent = () => {
                     </div>
 
                     <div className="project-list">
-                        {projects.map(p => {
+                        {otherProjects.map(p => {
                             const isActive = location.pathname.includes(p.project_id);
                             return (
                                 <div
@@ -74,28 +82,29 @@ const MenuComponent = () => {
                                         to={`/${p.project_id}/${p.title}`}
                                         className="project-link"
                                     >
-                                        <div className="project-icon"><HiOutlineHashtag /></div>
+                                        <div className="project-icon">
+                                            <HiOutlineHashtag />
+                                        </div>
                                         <div className="project-title">{p.title}</div>
                                     </NavLink>
                                     <div className="project-action">
                                         <BsThreeDots />
                                     </div>
                                 </div>
-                            )
+                            );
                         })}
                     </div>
                 </div>
             </div>
 
+            {/* Modal add task */}
             {isOpenModalAddTask && (
                 <div className="modal-backdrop">
-                    <ModalAddTask
-                        onClose={handleCloseModal}
-                    />
+                    <ModalAddTask onClose={handleCloseModal} />
                 </div>
             )}
         </div>
-    )
-}
+    );
+};
 
 export default MenuComponent;

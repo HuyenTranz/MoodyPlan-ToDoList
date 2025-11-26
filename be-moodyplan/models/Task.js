@@ -7,6 +7,11 @@ const TaskSchema = new Schema({
         default: () => new mongoose.Types.ObjectId(),
         unique: true,
     },
+    project_id: {
+        type: Schema.Types.ObjectId,
+        ref: 'Project',
+        require: true
+    },
     section_id: {
         type: Schema.Types.ObjectId,
         ref: 'Section',

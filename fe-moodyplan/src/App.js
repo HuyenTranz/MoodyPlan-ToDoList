@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import "./styles/index.scss";
 import Dashboard from "./pages/dashboard/Dashboard";
 import PrivateRoute from "./routes/PrivateRoute";
@@ -22,7 +22,11 @@ function App() {
             </PrivateRoute>
           }
         >
-          <Route path="/" element={<Dashboard />} />
+
+          {/* Redirect mặc định / -> /inbox */}
+          <Route index element={<Navigate to="/inbox" replace />} />
+
+          <Route path="/inbox" element={<Dashboard />} />
           <Route path=":project_id/:project_title" element={<ProjectPage />} />
         </Route>
 

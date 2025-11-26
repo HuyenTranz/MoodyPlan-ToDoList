@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useLocation } from 'react-router-dom'; // Import useLocation
+import { useLocation, useParams } from 'react-router-dom'; // Import useLocation
 import Header from '../../components/dashboard/Header';
 import todoEmptyImage from '../../assets/todo-empty.png';
 import ModalAddTask from '../../components/modal/ModalAddTask';
@@ -35,7 +35,6 @@ const Dashboard = () => {
 
     const handleCloseModalSection = () => {
         setOpenModalSection(false);
-        // setEmpty(true);
     };
 
 
