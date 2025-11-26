@@ -64,11 +64,13 @@
             cursor: pointer;
             font-weight: 500;
             font-size: 14px;
+            line-height: 24px; 
             border-radius: 6px;
             transition: background-color 0.2s, transform 0.2s;
             background-color: vars.$btn-bg;
             color: vars.$btn-text-color;
             border: none;
+            gap: 5px;
 
             svg {
                 width: 24px;
@@ -76,7 +78,6 @@
                 background-color: vars.$btn-bg;
                 color: vars.$btn-text-color;
                 border-radius: 50%;
-                padding: 3px;
             }
 
             &:hover {

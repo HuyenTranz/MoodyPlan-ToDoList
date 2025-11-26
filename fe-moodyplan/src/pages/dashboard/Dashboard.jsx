@@ -8,8 +8,8 @@ import ModalAddSection from '../../components/modal/ModalAddSection';
 const Dashboard = () => {
     const location = useLocation();
     const [empty, setEmpty] = useState(true);
-    const [isOpenodalAddTask, setOpenModalAddTask] = useState(false);
-    const [isOpenodalSection, setOpenModalSection] = useState(false);
+    const [isOpenModalAddTask, setOpenModalAddTask] = useState(false);
+    const [isOpenModalSection, setOpenModalSection] = useState(false);
 
     // Lấy tiêu đề động từ URL
     let displayTitle = "Inbox";
@@ -46,7 +46,7 @@ const Dashboard = () => {
                 {/* Hiển thị tiêu đề động */}
                 <div className="big-page-title">{displayTitle}</div>
 
-                {isOpenodalAddTask && (
+                {isOpenModalAddTask && (
                     <div className="modal-backdrop-inbox">
                         <ModalAddTask onClose={handleCloseModalAddTask} />
                     </div>
@@ -71,7 +71,7 @@ const Dashboard = () => {
                 ) : (
                     <div className="task-lists">
                         {/* Chỉ hiện Add section khi modal chưa mở */}
-                        {!isOpenodalSection && (
+                        {!isOpenModalSection && (
                             <div className="divider-wrapper">
                                 <span className="line"></span>
                                 <button className="btn-text" onClick={handleOpenModalSection}>
@@ -82,7 +82,7 @@ const Dashboard = () => {
                         )}
 
                         {/* Modal Section */}
-                        {isOpenodalSection && (
+                        {isOpenModalSection && (
                             <div className="modal-backdrop-inbox">
                                 <ModalAddSection onClose={handleCloseModalSection} />
                             </div>
